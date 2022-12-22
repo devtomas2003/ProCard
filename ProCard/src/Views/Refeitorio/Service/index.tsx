@@ -1,24 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import {
     Container,
-    TopHeader,
-    LeftLogos,
-    ImgApp,
-    TxtApp,
-    TimeBox,
-    BoxTime,
-    LineTime,
-    FooterApp,
-    LogoProCard,
-    ImgLogoPC,
-    TxtLogo,
-    TextProCard,
-    LineCopyright,
-    LinkProject,
-    SchoolData,
-    ImgSchool,
-    SchoolName,
     MainContainer,
     LineRequestChecks,
     UserCheck,
@@ -54,74 +38,26 @@ import {
     PriceBold,
     ManualUserEntry,
     InputUserCard,
-    TxtCardLbl
+    TxtCardLbl,
+    MealsData,
+    MealBox,
+    MealBoxTitle,
+    TxtMealBox,
+    BtnBack
 } from "./style";
 
 import { AiFillCloseSquare, AiFillCheckCircle } from "react-icons/ai";
+import { IoArrowBackCircleOutline } from "react-icons/io5";
+
+import Header from "../Components/Header";
+import Footer from "../Components/Footer";
 
 export default function Service(){
 
-    const [now, setNow] = useState(new Date());
+    const navigate = useNavigate();
+
     const [activeTaxMeal, setActiveTextMeal] = useState('cf3a2aaa-56f5-445e-bd7c-7da6d4d64910');
     const [modal, setModal] = useState('');
-
-    useEffect(() => {
-        setInterval(() => {
-            setNow(new Date());
-        }, 1000);
-    }, []);
-
-    function processMonth(month: number){
-        switch(month){
-            case 0:
-                return "janeiro";
-            case 1:
-                return "fevereiro";
-            case 2:
-                return "março";
-            case 3:
-                return "abril";
-            case 4:
-                return "maio";
-            case 5:
-                return "junho";
-            case 6:
-                return "julho";
-            case 7:
-                return "agosto";
-            case 8:
-                return "setembro";
-            case 9:
-                return "nutubro";
-            case 10:
-                return "novembro";
-            case 11:
-                return "dezembro";
-            default:
-                return "unknown month";
-        }
-    }
-
-    function processWeekDays(weekDay: number){
-        switch(weekDay){
-            case 1:
-                return "domingo";
-            case 2:
-                return "segunda-feira";
-            case 3:
-                return "terça-feira";
-            case 4:
-                return "quarta-feira";
-            case 5:
-                return "quinta-feira";
-            case 6:
-                return "sexta-feira";
-            case 7:
-                return "sábado";
-            default:
-                return "unknown day";
-        }
-    }
 
     return (
         <Container>
@@ -138,7 +74,7 @@ export default function Service(){
                             <AiFillCloseSquare size={20} color="#bd4c4c" />
                         </BoxClose>
                     </HeaderTop>
-                    <BodyModal>
+                    <BodyModal method="post">
                         <UserData>Nº de Cartão: <LblName>a16802</LblName></UserData>
                         <UserData>Nome: <LblName>João Alberto dos Santos</LblName></UserData>
                         <UserData>Escola/Turma: <LblName>Escola Secundária de Teste (12ºC)</LblName></UserData>
@@ -156,7 +92,7 @@ export default function Service(){
                         </CheckTax>
                         <TotalPrice>Valor: <PriceBold>1,78 €</PriceBold></TotalPrice>
                         <TextConfirm>Para confirmar passe um cartão autorizado.</TextConfirm>
-                        <BtnConfirm>
+                        <BtnConfirm type="submit">
                             <AiFillCheckCircle size={20} color="#2b9d4a" />
                             <ConfirmTxt>Confirmar</ConfirmTxt>
                         </BtnConfirm>
@@ -173,10 +109,10 @@ export default function Service(){
                             <AiFillCloseSquare size={20} color="#bd4c4c" />
                         </BoxClose>
                     </HeaderTop>
-                    <BodyModal>
+                    <BodyModal method="post">
                         <TxtCardLbl>Introduza o nº de cartão.</TxtCardLbl>
-                        <InputUserCard type="text" autoComplete="off" autoCapitalize="off" autoCorrect="off" />
-                        <BtnConfirm>
+                        <InputUserCard type="text" required autoComplete="off" autoCapitalize="off" autoCorrect="off" />
+                        <BtnConfirm type="submit">
                             <AiFillCheckCircle size={20} color="#2b9d4a" />
                             <ConfirmTxt>Confirmar</ConfirmTxt>
                         </BtnConfirm>
@@ -184,27 +120,11 @@ export default function Service(){
                 </ManualUserEntry>
                 : null }
             </ShadowBg> : null }
-            <TopHeader>
-                <LeftLogos>
-                    <ImgApp src="/refeitorio.svg" title="Refeitório" alt="Refeitório" />
-                    <TxtApp>Refeitório</TxtApp>
-                </LeftLogos>
-                <TimeBox>
-                    <BoxTime>
-                        <LineTime>Almoço</LineTime>
-                        <LineTime>11:30 - 14:30</LineTime>
-                    </BoxTime>
-                    <BoxTime>
-                        <LineTime>{now.getDate()}</LineTime>
-                        <LineTime>{processMonth(now.getMonth())}</LineTime>
-                    </BoxTime>
-                    <BoxTime>
-                        <LineTime>{now.getHours().toString().padStart(2, "0") + ":" + now.getMinutes().toString().padStart(2, "0")}</LineTime>
-                        <LineTime>{processWeekDays(now.getDay())}</LineTime>
-                    </BoxTime>
-                </TimeBox>
-            </TopHeader>
+            <Header />
             <MainContainer>
+                <BtnBack onClick={() => { navigate('/refeitorio/menu') }}>
+                    <IoArrowBackCircleOutline size={50} color="#444" />
+                </BtnBack>
                 <LineRequestChecks>
                     <UserCheck notAllowed={false}>
                         <StatusService>Autorizado</StatusService>
@@ -266,20 +186,25 @@ export default function Service(){
                         <BtnText>Nº de Cartão</BtnText>
                     </BtnAction>
                 </BtnsActions>
+                <MealsData>
+                    <MealBox>
+                        <MealBoxTitle>Carne</MealBoxTitle>
+                        <TxtMealBox>21/125</TxtMealBox>
+                        <TxtMealBox>Faltam: 104</TxtMealBox>
+                    </MealBox>
+                    <MealBox>
+                        <MealBoxTitle>Peixe</MealBoxTitle>
+                        <TxtMealBox>21/125</TxtMealBox>
+                        <TxtMealBox>Faltam: 104</TxtMealBox>
+                    </MealBox>
+                    <MealBox>
+                        <MealBoxTitle>Vegetariano</MealBoxTitle>
+                        <TxtMealBox>21/125</TxtMealBox>
+                        <TxtMealBox>Faltam: 104</TxtMealBox>
+                    </MealBox>
+                </MealsData>
             </MainContainer>
-            <FooterApp>
-                <LogoProCard>
-                    <ImgLogoPC src="/logo.svg" title="Pro Card" alt="Pro Card" />
-                    <TextProCard>
-                        <TxtLogo>ProCard</TxtLogo>
-                        <LineCopyright>2022 - {new Date().getFullYear()} © <LinkProject href="https://github.com/devtomas2003/ProCard" target="_blank">ProCard</LinkProject>. <LinkProject href="https://github.com/devtomas2003/ProCard/blob/Development/LICENSE" target="_blank">MIT License</LinkProject></LineCopyright>
-                    </TextProCard>
-                </LogoProCard>
-                <SchoolData>
-                    <ImgSchool src="http://192.168.1.10:8080/assets/logo.png" title="Nome da escola" alt="Nome da Escola" />
-                    <SchoolName>Agrupamento de Escolas de Tondela - Tomaz Ribeiro</SchoolName>
-                </SchoolData>
-            </FooterApp>
+            <Footer />
         </Container>
     );
 }

@@ -18,113 +18,10 @@ export const Container = styled.div`
     user-select: none;
 `;
 
-export const TopHeader = styled.div`
-    display: flex;
-    justify-content: space-between;
-    background: #34a9cc;
-    align-items: center;
-    padding: 10px;
-`;
-
-export const LeftLogos = styled.div`
-    display: flex;
-    align-items: flex-end;
-`;
-
-export const ImgApp = styled.img`
-    width: 70px;
-    border-radius: 5px;
-`;
-
-export const TxtApp = styled.p`
-    color: #fff;
-    margin-left: 10px;
-    font-size: 25px;
-`;
-
-export const TimeBox = styled.div`
-    display: flex;
-    margin-right: 20px;
-`;
-
-export const BoxTime = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    &:not(:last-child){
-        margin-right: 70px;
-    }
-`;
-
-export const LineTime = styled.p`
-    color: #fff;
-    font-size: 22px;
-    &:first-child{
-        font-size: 35px;
-        font-weight: 500;
-    }
-`;
-
-export const FooterApp = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #f0f0f0;
-    padding: 10px;
-`;
-
-export const LogoProCard = styled.div`
-    display: flex;
-    align-items: center;
-`;
-
-export const ImgLogoPC = styled.img`
-    width: 50px;
-`;
-
-export const TxtLogo = styled.p`
-    font-weight: 500;
-    font-size: 30px;
-    color: #444;
-`;
-
-export const TextProCard = styled.div`
-    margin-left: 15px;
-`;
-
-export const LineCopyright = styled.p`
-    color: #444;
-    margin-top: 3px;
-`;
-
-export const LinkProject = styled.a`
-    color: #1f61cf;
-    text-decoration: none;
-    &:hover{
-        cursor: pointer;
-        text-decoration: underline;
-    }
-`;
-
-export const SchoolData = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-`;
-
-export const ImgSchool = styled.img`
-    height: 45px;
-`;
-
-export const SchoolName = styled.p`
-    margin-top: 3px;
-    font-size: 16px;
-    font-weight: 500;
-`;
-
 export const MainContainer = styled.div`
     padding: 20px;
     display: flex;
+    height: 100%;
     flex-direction: column;
     align-items: center;
 `;
@@ -237,7 +134,7 @@ export const TxtModal = styled.p`
     margin-left: 5px;
 `;
 
-export const BodyModal = styled.div`
+export const BodyModal = styled.form`
     padding: 10px;
 `;
 
@@ -316,7 +213,7 @@ export const TxtTax = styled.label`
     color: #444;
 `;
 
-export const BtnConfirm = styled.div`
+export const BtnConfirm = styled.button`
     display: flex;
     align-items: center;
     padding: 5px;
@@ -365,4 +262,35 @@ export const InputUserCard = styled.input`
 export const TxtCardLbl = styled.p`
     font-size: 16px;
     color: #444;
+`;
+
+export const MealsData = styled.div`
+    display: flex;
+    gap: 80px;
+`;
+
+export const MealBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 200px;
+`;
+
+export const MealBoxTitle = styled.p`
+    color: #444;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+`;
+
+export const TxtMealBox = styled.p`
+    color: #444;
+    font-size: 18px;
+`;
+
+export const BtnBack = styled.div`
+    align-self: flex-start;
+    cursor: pointer;
 `;

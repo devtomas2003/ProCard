@@ -5,6 +5,7 @@ export const Container = styled.div`
     display: flex;
     height: 100%;
     width: 100%;
+    user-select: none;
 `;
 
 export const ImgLogo = styled.img`
@@ -90,7 +91,6 @@ export const BtnLogin = styled.button`
     outline: none;
     border: none;
     padding: 10px;
-    user-select: none;
     margin-top: 10px;
     &:hover{
         cursor: pointer;
