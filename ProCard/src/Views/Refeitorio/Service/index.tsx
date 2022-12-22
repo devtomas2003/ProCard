@@ -30,12 +30,40 @@ import {
     UserMetaExternal,
     BtnsActions,
     BtnAction,
-    BtnText
+    BtnText,
+    ShadowBg,
+    BoxTaxUser,
+    HeaderTop,
+    LogoAppModal,
+    TxtModal,
+    BodyModal,
+    BoxMetawindow,
+    BoxClose,
+    UserData,
+    LblName,
+    ListTypeRefs,
+    RefTypeBtn,
+    RefTypeTxt,
+    TextConfirm,
+    CheckTax,
+    InptChk,
+    TxtTax,
+    BtnConfirm,
+    ConfirmTxt,
+    TotalPrice,
+    PriceBold,
+    ManualUserEntry,
+    InputUserCard,
+    TxtCardLbl
 } from "./style";
+
+import { AiFillCloseSquare, AiFillCheckCircle } from "react-icons/ai";
 
 export default function Service(){
 
     const [now, setNow] = useState(new Date());
+    const [activeTaxMeal, setActiveTextMeal] = useState('cf3a2aaa-56f5-445e-bd7c-7da6d4d64910');
+    const [modal, setModal] = useState('');
 
     useEffect(() => {
         setInterval(() => {
@@ -97,6 +125,65 @@ export default function Service(){
 
     return (
         <Container>
+            { modal !== "" ?
+            <ShadowBg>
+                { modal === "allowTaxUser" ?
+                <BoxTaxUser>
+                    <HeaderTop>
+                        <BoxMetawindow>
+                            <LogoAppModal src="/refeitorio.svg" title="Refeitório" alt="Refeitório" />
+                            <TxtModal>Autorizar</TxtModal>
+                        </BoxMetawindow>
+                        <BoxClose onClick={() => { setModal(''); }}>
+                            <AiFillCloseSquare size={20} color="#bd4c4c" />
+                        </BoxClose>
+                    </HeaderTop>
+                    <BodyModal>
+                        <UserData>Nº de Cartão: <LblName>a16802</LblName></UserData>
+                        <UserData>Nome: <LblName>João Alberto dos Santos</LblName></UserData>
+                        <UserData>Escola/Turma: <LblName>Escola Secundária de Teste (12ºC)</LblName></UserData>
+                        <ListTypeRefs>
+                            <RefTypeBtn isActive={activeTaxMeal === "cf3a2aaa-56f5-445e-bd7c-7da6d4d64910"} onClick={() => { setActiveTextMeal("cf3a2aaa-56f5-445e-bd7c-7da6d4d64910"); }}>
+                                <RefTypeTxt>Normal</RefTypeTxt>
+                            </RefTypeBtn>
+                            <RefTypeBtn isActive={activeTaxMeal === "989ea6cf-c5a7-4b14-becc-654d4713fa31"} onClick={() => { setActiveTextMeal("989ea6cf-c5a7-4b14-becc-654d4713fa31"); }}>
+                                <RefTypeTxt>Vegetariano</RefTypeTxt>
+                            </RefTypeBtn>
+                        </ListTypeRefs>
+                        <CheckTax>
+                            <InptChk type="checkbox" id="taxCheck" />
+                            <TxtTax htmlFor="taxCheck">Vender refeição com taxa.</TxtTax>
+                        </CheckTax>
+                        <TotalPrice>Valor: <PriceBold>1,78 €</PriceBold></TotalPrice>
+                        <TextConfirm>Para confirmar passe um cartão autorizado.</TextConfirm>
+                        <BtnConfirm>
+                            <AiFillCheckCircle size={20} color="#2b9d4a" />
+                            <ConfirmTxt>Confirmar</ConfirmTxt>
+                        </BtnConfirm>
+                    </BodyModal>
+                </BoxTaxUser>
+                : modal === "manualEntry" ?
+                <ManualUserEntry>
+                    <HeaderTop>
+                        <BoxMetawindow>
+                            <LogoAppModal src="/refeitorio.svg" title="Refeitório" alt="Refeitório" />
+                            <TxtModal>Serviço por Nº de Cartão</TxtModal>
+                        </BoxMetawindow>
+                        <BoxClose onClick={() => { setModal(''); }}>
+                            <AiFillCloseSquare size={20} color="#bd4c4c" />
+                        </BoxClose>
+                    </HeaderTop>
+                    <BodyModal>
+                        <TxtCardLbl>Introduza o nº de cartão.</TxtCardLbl>
+                        <InputUserCard type="text" autoComplete="off" autoCapitalize="off" autoCorrect="off" />
+                        <BtnConfirm>
+                            <AiFillCheckCircle size={20} color="#2b9d4a" />
+                            <ConfirmTxt>Confirmar</ConfirmTxt>
+                        </BtnConfirm>
+                    </BodyModal>
+                </ManualUserEntry>
+                : null }
+            </ShadowBg> : null }
             <TopHeader>
                 <LeftLogos>
                     <ImgApp src="/refeitorio.svg" title="Refeitório" alt="Refeitório" />
@@ -143,7 +230,7 @@ export default function Service(){
                         <UserMeta>Tomás Figueiredo</UserMeta>
                         <UserMetaExternal>&nbsp;</UserMetaExternal>
                     </UserCheck>
-                    <UserCheck notAllowed={true}>
+                    <UserCheck notAllowed={true} onClick={() => { setModal('allowTaxUser'); }}>
                         <StatusService>Não autorizado</StatusService>
                         <StatusService>&nbsp;</StatusService>
                         <UserPic src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80" title="Nome do Fulano" alt="Nome do Fulano" />
@@ -164,7 +251,7 @@ export default function Service(){
                             <UserMeta>a16802</UserMeta>
                             <UserMeta>12ºC</UserMeta>
                         </LineUserData>
-                        <UserMeta>Tomás Figueiredo</UserMeta>
+                        <UserMeta>Rui Santos</UserMeta>
                         <UserMetaExternal>Externo - AETCF</UserMetaExternal>
                     </UserCheck>
                 </LineRequestChecks>
@@ -175,7 +262,7 @@ export default function Service(){
                     <BtnAction>
                         <BtnText>Próximo &#62;</BtnText>
                     </BtnAction>
-                    <BtnAction>
+                    <BtnAction onClick={() => { setModal('manualEntry'); }}>
                         <BtnText>Nº de Cartão</BtnText>
                     </BtnAction>
                 </BtnsActions>
