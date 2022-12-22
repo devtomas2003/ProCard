@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./Views/Login";
+import LoginRefeitorio from "./Views/Refeitorio/Login";
 
 import Default from './style';
+import MenuRefeitorio from "./Views/Refeitorio/Menu";
+import ServiceRefeitorio from "./Views/Refeitorio/Service";
 
 export default function Router(){
     return (
@@ -9,7 +11,9 @@ export default function Router(){
             {/* <AuthProvider> */}
                 <Default />
                 <Routes>
-                    <Route path="/" element={<Login />} />
+                    <Route path="/refeitorio" element={<LoginRefeitorio />} />
+                    <Route path="/refeitorio/menu" element={<MenuRefeitorio />} />
+                    <Route path="/refeitorio/servico" element={<ServiceRefeitorio />} />
                 </Routes>
             {/* </AuthProvider> */}
         </BrowserRouter>
