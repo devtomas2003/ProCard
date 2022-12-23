@@ -16,6 +16,7 @@ import { GiMeal, GiExitDoor } from "react-icons/gi";
 import { SlBookOpen } from "react-icons/sl";
 import { RiShutDownLine } from "react-icons/ri";
 import { BsGearFill } from "react-icons/bs";
+import { BiTimeFive } from "react-icons/bi";
 
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
@@ -50,21 +51,25 @@ export default function Menu(){
                 <CenterContainer>
                     <TxtMain>{regrats}, <NameLogon>Tomás Figueiredo</NameLogon></TxtMain>
                     <BtnsAction>
-                        <ActionBtn typeBtn={0} onClick={() => { navigate('/refeitorio/servico'); }}>
+                        <ActionBtn typeBtn={0} onClick={() => { navigate('/kiosk/requests'); }}>
                             <GiMeal size={80} color="#fff" />
-                            <TxtBtn>Serviço</TxtBtn>
+                            <TxtBtn>Requisitar</TxtBtn>
                         </ActionBtn>
-                        <ActionBtn typeBtn={1} onClick={() => { navigate('/refeitorio/view'); }}>
+                        <ActionBtn typeBtn={1} onClick={() => { navigate('/kiosk/transactions'); }}>
                             <SlBookOpen size={80} color="#fff" />
-                            <TxtBtn>Consultar</TxtBtn>
+                            <TxtBtn>Movimentos</TxtBtn>
                         </ActionBtn>
-                        <ActionBtn typeBtn={4} onClick={() => { navigate('/refeitorio/config'); }}>
-                            <BsGearFill size={80} color="#fff" />
-                            <TxtBtn>Configurações</TxtBtn>
+                        <ActionBtn typeBtn={5} onClick={() => { navigate('/kiosk/assiduity'); }}>
+                            <BiTimeFive size={80} color="#fff" />
+                            <TxtBtn>Assiuidade</TxtBtn>
                         </ActionBtn>
                         <ActionBtn typeBtn={2}>
                             <GiExitDoor size={80} color="#fff" />
                             <TxtBtn>Terminar sessão</TxtBtn>
+                        </ActionBtn>
+                        <ActionBtn typeBtn={4} onClick={() => { navigate('/kiosk/config'); }}>
+                            <BsGearFill size={80} color="#fff" />
+                            <TxtBtn>Configurações</TxtBtn>
                         </ActionBtn>
                         <ActionBtn typeBtn={3} onClick={() => { window.postMessage({ type: "closemykiosk" }); }}>
                             <RiShutDownLine size={80} color="#fff" />

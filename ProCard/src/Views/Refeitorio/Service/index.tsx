@@ -51,6 +51,7 @@ import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import { ConfsProps } from "../../../Types/Refeitorio";
 
 export default function Service(){
 
@@ -58,6 +59,12 @@ export default function Service(){
 
     const [activeTaxMeal, setActiveTextMeal] = useState('cf3a2aaa-56f5-445e-bd7c-7da6d4d64910');
     const [modal, setModal] = useState('');
+    const [sellWithTax, setSellWithTax] = useState(true);
+
+    function checkPermsApp(name: string): boolean{
+        const perms = JSON.parse(localStorage.getItem("confs") || "{}");
+        return perms[name as keyof ConfsProps];
+    }
 
     return (
         <Container>
@@ -87,15 +94,18 @@ export default function Service(){
                             </RefTypeBtn>
                         </ListTypeRefs>
                         <CheckTax>
-                            <InptChk type="checkbox" id="taxCheck" />
+                            <InptChk type="checkbox" id="taxCheck" checked={sellWithTax} onChange={() => { setSellWithTax(!sellWithTax); }} disabled={!checkPermsApp("sellWT")} />
                             <TxtTax htmlFor="taxCheck">Vender refeição com taxa.</TxtTax>
                         </CheckTax>
                         <TotalPrice>Valor: <PriceBold>1,78 €</PriceBold></TotalPrice>
-                        <TextConfirm>Para confirmar passe um cartão autorizado.</TextConfirm>
+                        { checkPermsApp("onlyAuth") ?
                         <BtnConfirm type="submit">
                             <AiFillCheckCircle size={20} color="#2b9d4a" />
                             <ConfirmTxt>Confirmar</ConfirmTxt>
                         </BtnConfirm>
+                        :
+                        <TextConfirm>Para confirmar passe um cartão autorizado.</TextConfirm>
+                        }
                     </BodyModal>
                 </BoxTaxUser>
                 : modal === "manualEntry" ?
@@ -182,18 +192,14 @@ export default function Service(){
                     <BtnAction>
                         <BtnText>Próximo &#62;</BtnText>
                     </BtnAction>
+                    { checkPermsApp("serviceCard") ?
                     <BtnAction onClick={() => { setModal('manualEntry'); }}>
                         <BtnText>Nº de Cartão</BtnText>
-                    </BtnAction>
+                    </BtnAction> : null }
                 </BtnsActions>
                 <MealsData>
                     <MealBox>
-                        <MealBoxTitle>Carne</MealBoxTitle>
-                        <TxtMealBox>21/125</TxtMealBox>
-                        <TxtMealBox>Faltam: 104</TxtMealBox>
-                    </MealBox>
-                    <MealBox>
-                        <MealBoxTitle>Peixe</MealBoxTitle>
+                        <MealBoxTitle>Normal</MealBoxTitle>
                         <TxtMealBox>21/125</TxtMealBox>
                         <TxtMealBox>Faltam: 104</TxtMealBox>
                     </MealBox>

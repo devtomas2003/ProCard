@@ -31,9 +31,9 @@ export const ActionBtn = styled.div`
     justify-content: center;
     width: 150px;
     height: 150px;
-    background: ${(props: BtnsAction) => props.typeBtn === 0 ? '#f7941e' : props.typeBtn === 1 ? '#4679c7' : props.typeBtn === 2 ? '#0081b5' : props.typeBtn === 3 ? '#df0024' : '#2582D3'};
+    background: ${(props: BtnsAction) => props.typeBtn === 0 ? '#f7941e' : props.typeBtn === 1 ? '#4679c7' : props.typeBtn === 2 ? '#0081b5' : props.typeBtn === 3 ? '#df0024' : props.typeBtn === 4 ? '#2582D3' : '#009f3c'};
     &:hover{
-        background: ${(props: BtnsAction) => props.typeBtn === 0 ? '#e0861b' : props.typeBtn === 1 ? '#3d69ad' : props.typeBtn === 2 ? '#00719e' : props.typeBtn === 3 ? '#c90021' : '#2074bd'};
+        background: ${(props: BtnsAction) => props.typeBtn === 0 ? '#e0861b' : props.typeBtn === 1 ? '#3d69ad' : props.typeBtn === 2 ? '#00719e' : props.typeBtn === 3 ? '#c90021' : props.typeBtn === 4 ? '#2074bd' : '#018734'};
         cursor: pointer;
     }
 `;
