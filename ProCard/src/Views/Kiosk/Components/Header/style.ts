@@ -46,3 +46,27 @@ export const LineTime = styled.p`
         font-weight: 500;
     }
 `;
+
+export const UserMetadata = styled.div`
+    display: flex;
+    align-items: center;
+    margin-right: 70px;
+`;
+
+export const IMGUser = styled.img`
+    height: 70px;
+`;
+
+export const UserInfo = styled.div`
+    margin-left: 10px;
+`;
+
+export const UserTxt = styled.p`
+    color: #fff;
+    &:not(:first-child){
+        margin-top: 4px;
+    }
+    &:last-child{
+        font-weight: bold;
+    }
+`;

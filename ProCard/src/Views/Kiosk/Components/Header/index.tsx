@@ -7,7 +7,11 @@ import {
     TxtApp,
     TimeBox,
     BoxTime,
-    LineTime
+    LineTime,
+    UserMetadata,
+    IMGUser,
+    UserInfo,
+    UserTxt
 } from "./style";
 
 export default function Header(){
@@ -78,6 +82,14 @@ export default function Header(){
                 <TxtApp>Kiosk</TxtApp>
             </LeftLogos>
             <TimeBox>
+                <UserMetadata>
+                    <IMGUser src="https://www.osso.pt/wp-content/uploads/2013/03/765-default-avatar.png" title="Fulano de Tal" alt="Fulano de Tal" />
+                    <UserInfo>
+                        <UserTxt>Tomás Figueiredo</UserTxt>
+                        <UserTxt>a16802</UserTxt>
+                        <UserTxt>10,23 €</UserTxt>
+                    </UserInfo>
+                </UserMetadata>
                 <BoxTime>
                     <LineTime>{now.getDate()}</LineTime>
                     <LineTime>{processMonth(now.getMonth())}</LineTime>

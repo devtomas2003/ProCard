@@ -8,6 +8,7 @@ import ViewRefeitorio from "./Views/Refeitorio/View";
 import ConfigurationsRefeitorio from "./Views/Refeitorio/Configurations";
 import LoginKiosk from "./Views/Kiosk/Login";
 import MenuKiosk from "./Views/Kiosk/Menu";
+import RequestsKiosk from "./Views/Kiosk/Requests";
 
 export default function Router(){
     return (
@@ -22,6 +23,7 @@ export default function Router(){
                     <Route path="/refeitorio/config" element={<ConfigurationsRefeitorio />} />
                     <Route path="/kiosk" element={<LoginKiosk />} />
                     <Route path="/kiosk/menu" element={<MenuKiosk />} />
+                    <Route path="/kiosk/requests" element={<RequestsKiosk />} />
                 </Routes>
             {/* </AuthProvider> */}
         </BrowserRouter>

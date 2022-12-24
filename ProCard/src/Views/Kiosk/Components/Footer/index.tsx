@@ -22,7 +22,7 @@ export default function Footer(){
                 </TextProCard>
             </LogoProCard>
             <SchoolData>
-                <ImgSchool src="http://192.168.1.10:8080/assets/logo.png" title="Nome da escola" alt="Nome da Escola" />
+                <ImgSchool src="http://localhost:8080/assets/logo.png" title="Nome da escola" alt="Nome da Escola" />
                 <SchoolName>Agrupamento de Escolas de Tondela - Tomaz Ribeiro</SchoolName>
             </SchoolData>
         </FooterApp>

@@ -33,7 +33,7 @@ export default function Login(){
                         <ImgLogo src="/logo.svg" title="ProCard" alt="ProCard" />
                         <TxtLogo>ProCard</TxtLogo>
                     </LogoProCardBox>
-                    <ImgSchoolLogo src="http://192.168.1.10:8080/assets/logo.png" title="Nome da Escola" alt="Nome da Escola" />
+                    <ImgSchoolLogo src="http://localhost:8080/assets/logo.png" title="Nome da Escola" alt="Nome da Escola" />
                 </LogosList>
                 <LineSchool>Agrupamento de Escolas de Tondela - Tomaz Ribeiro</LineSchool>
             </LeftLogos>
