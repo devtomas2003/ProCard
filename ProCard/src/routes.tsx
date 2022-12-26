@@ -9,6 +9,10 @@ import ConfigurationsRefeitorio from "./Views/Refeitorio/Configurations";
 import LoginKiosk from "./Views/Kiosk/Login";
 import MenuKiosk from "./Views/Kiosk/Menu";
 import RequestsKiosk from "./Views/Kiosk/Requests";
+import TransactionsKiosk from "./Views/Kiosk/Transactions";
+import ConfigurationsKiosk from "./Views/Kiosk/Configurations";
+import LoginPOS from "./Views/POS/Login";
+import DashboardPOS from "./Views/POS/Dashboard";
 
 export default function Router(){
     return (
@@ -24,6 +28,10 @@ export default function Router(){
                     <Route path="/kiosk" element={<LoginKiosk />} />
                     <Route path="/kiosk/menu" element={<MenuKiosk />} />
                     <Route path="/kiosk/requests" element={<RequestsKiosk />} />
+                    <Route path="/kiosk/transactions" element={<TransactionsKiosk />} />
+                    <Route path="/kiosk/config" element={<ConfigurationsKiosk />} />
+                    <Route path="/pos" element={<LoginPOS />} />
+                    <Route path="/pos/dashboard" element={<DashboardPOS />} />
                 </Routes>
             {/* </AuthProvider> */}
         </BrowserRouter>

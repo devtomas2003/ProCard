@@ -55,6 +55,36 @@ export const NameLogon = styled.label`
     font-weight: bold;
 `;
 
-export const CenterContainer = styled.div`
+export const CenterContainer = styled.div``;
 
+export const BoxShadow = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+`;
+
+export const BoxRegister = styled.div`
+    padding: 20px;
+    border-radius: 5px;
+    background: #009f3c;
+    display: flex;
+    align-items: center;
+    width: 500px;
+`;
+
+export const IconStatus = styled.div`
+
+`;
+
+export const TxtsZone = styled.div`
+    margin-left: 5px;
+`;
+
+export const TxtStatus = styled.p`
+    color: #fff;
+    font-size: 20px;
 `;

@@ -13,7 +13,9 @@ export const MainContainer = styled.form`
     padding: 20px;
     display: flex;
     height: 100%;
+    width: 800px;
     flex-direction: column;
+    overflow-y: auto;
 `;
 
 export const BoxBackZone = styled.div`
@@ -51,9 +53,8 @@ export const LblText = styled.label`
     margin-left: 5px;
 `;
 
-export const TableRefeitorios = styled.table`
-    margin-top: 20px;
-    width: 800px;
+export const TableKiosk = styled.table`
+    margin-top: 5px;
 `;
 
 export const TRRef = styled.tr`
@@ -80,6 +81,24 @@ export const BoxSelect = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+`;
+
+export const TxtOption = styled.p`
+    color: #444;
+    margin-top: 15px;
+    font-size: 17px;
+`;
+
+export const InptTitle = styled.p`
+    color: #444;
+    margin-top: 10px;
+`;
+
+export const InpConf = styled.input`
+    padding: 3px;
+    border: 1px solid #ccc;
+    margin-top: 2px;
+    outline: none;
 `;
 
 export const BtnConfirm = styled.button`

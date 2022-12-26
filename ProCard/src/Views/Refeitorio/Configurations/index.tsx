@@ -16,64 +16,43 @@ import {
     TDRef,
     TabHead,
     TabBody,
-    BoxSelect
+    BoxSelect,
+    BtnConfirm,
+    ConfirmTxt
 } from "./style";
 
 import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { AiFillCheckCircle } from "react-icons/ai";
 
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import { ConfsProps } from "../../../Types/Refeitorio";
 
 export default function Configurations(){
     
     const navigate = useNavigate();
-    const [onlyAuth, setOnlyAuth] = useState(JSON.parse(localStorage.getItem("confs") || "{}").onlyAuth);
-    const [sellWT, setSellWT] = useState(JSON.parse(localStorage.getItem("confs") || "{}").sellWT);
-    const [enadesService, setEnadesService] = useState(JSON.parse(localStorage.getItem("confs") || "{}").enadesService);
-    const [subEscal, setSubEscal] = useState(JSON.parse(localStorage.getItem("confs") || "{}").subEscal);
-    const [serviceCard, setServiceCard] = useState(JSON.parse(localStorage.getItem("confs") || "{}").serviceCard);
-    const [doorNeed, setDoorNeed] = useState(JSON.parse(localStorage.getItem("confs") || "{}").doorNeed);
+    const [onlyAuth, setOnlyAuth] = useState<boolean>(JSON.parse(localStorage.getItem("confs-refeitorio") || "{}").onlyAuth);
+    const [sellWT, setSellWT] = useState<boolean>(JSON.parse(localStorage.getItem("confs-refeitorio") || "{}").sellWT);
+    const [enadesService, setEnadesService] = useState<boolean>(JSON.parse(localStorage.getItem("confs") || "{}").enadesService);
+    const [subEscal, setSubEscal] = useState<boolean>(JSON.parse(localStorage.getItem("confs-refeitorio") || "{}").subEscal);
+    const [serviceCard, setServiceCard] = useState<boolean>(JSON.parse(localStorage.getItem("confs-refeitorio") || "{}").serviceCard);
+    const [doorNeed, setDoorNeed] = useState<boolean>(JSON.parse(localStorage.getItem("confs-refeitorio") || "{}").doorNeed);
 
-    function updateConfig(name: string){
-        switch(name){
-            case "onlyAuth":
-                setOnlyAuth(!onlyAuth);
-                localStorage.setItem("confs", JSON.stringify(changeProp("onlyAuth")));
-                break;
-            case "sellWT":
-                setSellWT(!sellWT);
-                localStorage.setItem("confs", JSON.stringify(changeProp("sellWT")));
-                break;
-            case "enadesService":
-                setEnadesService(!enadesService);
-                localStorage.setItem("confs", JSON.stringify(changeProp("enadesService")));
-                break;
-            case "subEscal":
-                setSubEscal(!subEscal);
-                localStorage.setItem("confs", JSON.stringify(changeProp("subEscal")));
-                break;
-            case "serviceCard":
-                setServiceCard(!serviceCard);
-                localStorage.setItem("confs", JSON.stringify(changeProp("serviceCard")));
-                break;
-            case "doorNeed":
-                setDoorNeed(!doorNeed);
-                localStorage.setItem("confs", JSON.stringify(changeProp("doorNeed")));
-                break;
-        }
-    }
-
-    function changeProp(propName: string){
-        let lastConfs = JSON.parse(localStorage.getItem("confs") || "{}");
-        lastConfs[propName  as keyof ConfsProps] = !lastConfs[propName as keyof ConfsProps];
-        return lastConfs;
+    function updateConfig(){
+        const atualConfig = {
+            onlyAuth,
+            sellWT,
+            enadesService,
+            subEscal,
+            serviceCard,
+            doorNeed
+        };
+        localStorage.setItem("confs-refeitorio", JSON.stringify(atualConfig));
     }
 
     return (
         <Container>
             <Header />
-                <MainContainer>
+                <MainContainer method="post" onSubmit={(e) => { e.preventDefault(); updateConfig(); }}>
                     <BoxBackZone>
                         <BtnBack onClick={() => { navigate('/refeitorio/menu') }}>
                             <IoArrowBackCircleOutline size={50} color="#444" />
@@ -82,27 +61,27 @@ export default function Configurations(){
                     </BoxBackZone>
                     <ConfigChecks>
                         <LineCheck>
-                            <CkeckInpt type="checkbox" id="onlyAuth" checked={onlyAuth} onChange={() => { updateConfig("onlyAuth"); }} />
+                            <CkeckInpt type="checkbox" id="onlyAuth" checked={onlyAuth} onChange={(e) => { setOnlyAuth(e.target.checked); }} />
                             <LblText htmlFor="onlyAuth">Permitir venda de refeições sem ser necessário um utilizador autorizado.</LblText>
                         </LineCheck>
                         <LineCheck>
-                            <CkeckInpt type="checkbox" id="sellWT" checked={sellWT} onChange={() => { updateConfig("sellWT"); }} />
+                            <CkeckInpt type="checkbox" id="sellWT" checked={sellWT} onChange={(e) => { setSellWT(e.target.checked); }} />
                             <LblText htmlFor="sellWT">Permitir venda de refeições sem taxa.</LblText>
                         </LineCheck>
                         <LineCheck>
-                            <CkeckInpt type="checkbox" id="enadesService" checked={enadesService} onChange={() => { updateConfig("enadesService"); }} />
+                            <CkeckInpt type="checkbox" id="enadesService" checked={enadesService} onChange={(e) => { setEnadesService(e.target.checked); }} />
                             <LblText htmlFor="enadesService">Permitir a ativação/desativação do serviço.</LblText>
                         </LineCheck>
                         <LineCheck>
-                            <CkeckInpt type="checkbox" id="subEscal" checked={subEscal} onChange={() => { updateConfig("subEscal"); }} />
+                            <CkeckInpt type="checkbox" id="subEscal" checked={subEscal} onChange={(e) => { setSubEscal(e.target.checked); }} />
                             <LblText htmlFor="subEscal">Mostrar escalão de subsídio.</LblText>
                         </LineCheck>
                         <LineCheck>
-                            <CkeckInpt type="checkbox" id="serviceCard" checked={serviceCard} onChange={() => { updateConfig("serviceCard"); }} />
+                            <CkeckInpt type="checkbox" id="serviceCard" checked={serviceCard} onChange={(e) => { setServiceCard(e.target.checked); }} />
                             <LblText htmlFor="serviceCard">Permitir o serviço através do nº de cartão.</LblText>
                         </LineCheck>
                         <LineCheck>
-                            <CkeckInpt type="checkbox" id="doorNeed" checked={doorNeed} onChange={() => { updateConfig("doorNeed"); }} />
+                            <CkeckInpt type="checkbox" id="doorNeed" checked={doorNeed} onChange={(e) => { console.log(e); setDoorNeed(e.target.checked); }} />
                             <LblText htmlFor="doorNeed">Condicionar cartões sem o registo de entrada na portária.</LblText>
                         </LineCheck>
                     </ConfigChecks>
@@ -136,6 +115,10 @@ export default function Configurations(){
                             </TRRef>
                         </TabBody>
                     </TableRefeitorios>
+                    <BtnConfirm type="submit">
+                        <AiFillCheckCircle size={23} color="#2b9d4a" />
+                        <ConfirmTxt>Gravar</ConfirmTxt>
+                    </BtnConfirm>
                 </MainContainer>
             <Footer />
         </Container>

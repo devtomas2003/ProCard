@@ -9,7 +9,12 @@ import {
     TxtBtn,
     TxtMain,
     NameLogon,
-    CenterContainer
+    CenterContainer,
+    BoxShadow,
+    BoxRegister,
+    IconStatus,
+    TxtsZone,
+    TxtStatus
 } from "./style";
 
 import { GiMeal, GiExitDoor } from "react-icons/gi";
@@ -17,12 +22,14 @@ import { SlBookOpen } from "react-icons/sl";
 import { RiShutDownLine } from "react-icons/ri";
 import { BsGearFill } from "react-icons/bs";
 import { BiTimeFive } from "react-icons/bi";
+import { AiFillCheckCircle } from "react-icons/ai";
 
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 
 export default function Menu(){
 
+    const [alertAssiduity, setAlertAssiduity] = useState(false);
     const navigate = useNavigate();
 
     function processRegrats(){
@@ -46,6 +53,17 @@ export default function Menu(){
 
     return (
         <Container>
+            { alertAssiduity ?
+            <BoxShadow>
+                <BoxRegister>
+                    <IconStatus>
+                        <AiFillCheckCircle size={80} color="#fff" />
+                    </IconStatus>
+                    <TxtsZone>
+                        <TxtStatus>Registo de entrada gravado com sucesso!</TxtStatus>
+                    </TxtsZone>
+                </BoxRegister>
+            </BoxShadow> : null }
             <Header />
             <MainContainer>
                 <CenterContainer>
@@ -59,9 +77,9 @@ export default function Menu(){
                             <SlBookOpen size={80} color="#fff" />
                             <TxtBtn>Movimentos</TxtBtn>
                         </ActionBtn>
-                        <ActionBtn typeBtn={5} onClick={() => { navigate('/kiosk/assiduity'); }}>
+                        <ActionBtn typeBtn={5} onClick={() => { setAlertAssiduity(true); setTimeout(() => { setAlertAssiduity(false); }, 3000); }}>
                             <BiTimeFive size={80} color="#fff" />
-                            <TxtBtn>Assiuidade</TxtBtn>
+                            <TxtBtn>Registrar Assiuidade</TxtBtn>
                         </ActionBtn>
                         <ActionBtn typeBtn={2}>
                             <GiExitDoor size={80} color="#fff" />
