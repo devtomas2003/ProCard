@@ -1,98 +1,212 @@
 import {
     Container,
     BoxContainer,
-    MenuSide,
+    SideMenu,
+    LogoZone,
+    IMGApp,
     AppName,
-    LogoApp,
-    MainContainer,
-    LogoBox,
-    BoxLoginUser,
-    TxtUsername,
-    ImgProfile,
-    LineServices,
-    ServiceItem,
-    ServiceName,
-    BoxApp,
-    BoxList,
-    SubMenu,
-    TxtTest
-} from "./style";
-
-import { FaMoneyBillWave } from "react-icons/fa";
-import { GiTakeMyMoney } from "react-icons/gi";
-import { BsCurrencyEuro } from "react-icons/bs";
-import { IoPrint } from "react-icons/io5";
-import { HiOutlineDocumentText } from "react-icons/hi";
+    MenuZone,
+    ULMain,
+    LIMain,
+    MainItem,
+    TxtItemMain,
+    ULSub,
+    LISub,
+    SubItem,
+    TxtSubItem,
+    TxtSubItemOnly,
+    MenuMetadata,
+    DropIcon
+} from "./style"
 
 import Footer from "../Components/Footer";
+
+import { FaCashRegister, FaHandHoldingUsd, FaHandshake, FaUserCircle, FaWrench } from "react-icons/fa";
+import { BsCashCoin, BsPrinterFill, BsPaperclip, BsGearFill } from "react-icons/bs";
+import { MdOutlineArrowDropDown } from "react-icons/md";
+import { GiSandwich, GiHotMeal, GiPayMoney } from "react-icons/gi";
+import { TbReportMoney } from "react-icons/tb";
+import { ImExit } from "react-icons/im";
+import { IoIosDocument } from "react-icons/io";
+import { AiFillCopy } from "react-icons/ai";
 
 export default function Dashboard(){
     return (
         <Container>
             <BoxContainer>
-                <MenuSide>
-                    <LogoBox>
-                        <LogoApp src="/pos.svg" title="POS" alt="POS" />
+                <SideMenu>
+                    <LogoZone>
+                        <IMGApp src="/pos.svg" title="POS" alt="POS" />
                         <AppName>POS</AppName>
-                    </LogoBox>
-                    <BoxLoginUser>
-                        <ImgProfile src="/man.png" title="Nome do Fulano" alt="Nome do Fulano" />
-                        <TxtUsername>Rui Santos</TxtUsername>
-                    </BoxLoginUser>
-                </MenuSide>
-                <MainContainer>
-                    <LineServices>
-                        <ServiceItem>
-                            <ServiceName>Caixa</ServiceName>
-                        </ServiceItem>
-                        <ServiceItem>
-                            <ServiceName>Bufete</ServiceName>
-                            <BoxList>
-                                <SubMenu>
-                                    <FaMoneyBillWave size={20} color="#444" />
-                                    <TxtTest>Carregamento</TxtTest>
-                                </SubMenu>
-                                <SubMenu>
-                                    <GiTakeMyMoney size={20} color="#444" />
-                                    <TxtTest>Devolução</TxtTest>
-                                </SubMenu>
-                                <SubMenu>
-                                    <HiOutlineDocumentText size={20} color="#444" />
-                                    <TxtTest>Devolver cauções</TxtTest>
-                                </SubMenu>
-                                <SubMenu>
-                                    <BsCurrencyEuro size={20} color="#444" />
-                                    <TxtTest>Regularizar</TxtTest>
-                                </SubMenu>
-                                <SubMenu>
-                                    <IoPrint size={20} color="#444" />
-                                    <TxtTest>Reimprimir</TxtTest>
-                                </SubMenu>
-                            </BoxList>
-                        </ServiceItem>
-                        <ServiceItem>
-                            <ServiceName>Papelaria</ServiceName>
-                        </ServiceItem>
-                        <ServiceItem>
-                            <ServiceName>Reprografia</ServiceName>
-                        </ServiceItem>
-                        <ServiceItem>
-                            <ServiceName>Serviços</ServiceName>
-                        </ServiceItem>
-                        <ServiceItem>
-                            <ServiceName>Cauções</ServiceName>
-                        </ServiceItem>
-                        <ServiceItem>
-                            <ServiceName>Refeições</ServiceName>
-                        </ServiceItem>
-                        <ServiceItem>
-                            <ServiceName>Configurar</ServiceName>
-                        </ServiceItem>
-                    </LineServices>
-                    <BoxApp>
-
-                    </BoxApp>
-                </MainContainer>
+                    </LogoZone>
+                    <MenuZone>
+                        <ULMain>
+                            <LIMain>
+                                <MainItem>
+                                    <MenuMetadata>
+                                        <FaUserCircle size={20} color="#4B5563" />
+                                        <TxtItemMain>Tomás Figueiredo</TxtItemMain>
+                                    </MenuMetadata>
+                                    <DropIcon>
+                                        <MdOutlineArrowDropDown size={25} color="#4B5563" />
+                                    </DropIcon>
+                                </MainItem>
+                                <ULSub>
+                                    <LISub>
+                                        <SubItem>
+                                            <ImExit size={20} color="#4B5563" />
+                                            <TxtSubItem>Terminar sessão</TxtSubItem>
+                                        </SubItem>
+                                    </LISub>
+                                </ULSub>
+                            </LIMain>
+                            <LIMain>
+                                <MainItem>
+                                    <MenuMetadata>
+                                        <FaCashRegister size={20} color="#4B5563" />
+                                        <TxtItemMain>Caixa</TxtItemMain>
+                                    </MenuMetadata>
+                                    <DropIcon>
+                                        <MdOutlineArrowDropDown size={25} color="#4B5563" />
+                                    </DropIcon>
+                                </MainItem>
+                                <ULSub>
+                                    <LISub>
+                                        <SubItem>
+                                            <BsCashCoin size={20} color="#4B5563" />
+                                            <TxtSubItem>Carregar cartão</TxtSubItem>
+                                        </SubItem>
+                                    </LISub>
+                                    <LISub>
+                                        <SubItem>
+                                            <FaHandHoldingUsd size={20} color="#4B5563" />
+                                            <TxtSubItem>Devolução</TxtSubItem>
+                                        </SubItem>
+                                    </LISub>
+                                    <LISub>
+                                        <SubItem>
+                                            <FaHandshake size={20} color="#4B5563" />
+                                            <TxtSubItem>Devolver cauções</TxtSubItem>
+                                        </SubItem>
+                                    </LISub>
+                                    <LISub>
+                                        <SubItem>
+                                            <TbReportMoney size={20} color="#4B5563" />
+                                            <TxtSubItem>Regularizar</TxtSubItem>
+                                        </SubItem>
+                                    </LISub>
+                                    <LISub>
+                                        <SubItem>
+                                            <BsPrinterFill size={20} color="#4B5563" />
+                                            <TxtSubItem>Reimprimir</TxtSubItem>
+                                        </SubItem>
+                                    </LISub>
+                                </ULSub>
+                            </LIMain>
+                            <LIMain>
+                                <MainItem>
+                                    <MenuMetadata>
+                                        <GiSandwich size={20} color="#4B5563" />
+                                        <TxtItemMain>Bufete</TxtItemMain>
+                                    </MenuMetadata>
+                                </MainItem>
+                            </LIMain>
+                            <LIMain>
+                                <MainItem>
+                                    <MenuMetadata>
+                                        <BsPaperclip size={20} color="#4B5563" />
+                                        <TxtItemMain>Papelaria</TxtItemMain>
+                                    </MenuMetadata>
+                                </MainItem>
+                            </LIMain>
+                            <LIMain>
+                                <MainItem>
+                                    <MenuMetadata>
+                                        <AiFillCopy size={20} color="#4B5563" />
+                                        <TxtItemMain>Reprografia</TxtItemMain>
+                                    </MenuMetadata>
+                                </MainItem>
+                            </LIMain>
+                            <LIMain>
+                                <MainItem>
+                                    <MenuMetadata>
+                                        <GiPayMoney size={20} color="#4B5563" />
+                                        <TxtItemMain>Cauções</TxtItemMain>
+                                    </MenuMetadata>
+                                </MainItem>
+                            </LIMain>
+                            <LIMain>
+                                <MainItem>
+                                    <MenuMetadata>
+                                        <IoIosDocument size={20} color="#4B5563" />
+                                        <TxtItemMain>Serviços</TxtItemMain>
+                                    </MenuMetadata>
+                                </MainItem>
+                            </LIMain>
+                            <LIMain>
+                                <MainItem>
+                                    <MenuMetadata>
+                                        <GiHotMeal size={20} color="#4B5563" />
+                                        <TxtItemMain>Refeições</TxtItemMain>
+                                    </MenuMetadata>
+                                </MainItem>
+                            </LIMain>
+                            <LIMain>
+                                <MainItem>
+                                    <MenuMetadata>
+                                        <BsGearFill size={20} color="#4B5563" />
+                                        <TxtItemMain>Configurar</TxtItemMain>
+                                    </MenuMetadata>
+                                    <DropIcon>
+                                        <MdOutlineArrowDropDown size={25} color="#4B5563" />
+                                    </DropIcon>
+                                </MainItem>
+                                <ULSub>
+                                    <LISub>
+                                        <SubItem>
+                                            <TxtSubItemOnly>Gerais</TxtSubItemOnly>
+                                        </SubItem>
+                                    </LISub>
+                                    <LISub>
+                                        <SubItem>
+                                            <TxtSubItemOnly>Caixa</TxtSubItemOnly>
+                                        </SubItem>
+                                    </LISub>
+                                    <LISub>
+                                        <SubItem>
+                                            <TxtSubItemOnly>Bufete</TxtSubItemOnly>
+                                        </SubItem>
+                                    </LISub>
+                                    <LISub>
+                                        <SubItem>
+                                            <TxtSubItemOnly>Papelaria</TxtSubItemOnly>
+                                        </SubItem>
+                                    </LISub>
+                                    <LISub>
+                                        <SubItem>
+                                            <TxtSubItemOnly>Reprografia</TxtSubItemOnly>
+                                        </SubItem>
+                                    </LISub>
+                                    <LISub>
+                                        <SubItem>
+                                            <TxtSubItemOnly>Cauções</TxtSubItemOnly>
+                                        </SubItem>
+                                    </LISub>
+                                    <LISub>
+                                        <SubItem>
+                                            <TxtSubItemOnly>Serviços</TxtSubItemOnly>
+                                        </SubItem>
+                                    </LISub>
+                                    <LISub>
+                                        <SubItem>
+                                            <TxtSubItemOnly>Refeições</TxtSubItemOnly>
+                                        </SubItem>
+                                    </LISub>
+                                </ULSub>
+                            </LIMain>
+                        </ULMain>
+                    </MenuZone>
+                </SideMenu>
             </BoxContainer>
             <Footer />
         </Container>
