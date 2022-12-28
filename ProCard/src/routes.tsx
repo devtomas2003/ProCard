@@ -13,6 +13,8 @@ import TransactionsKiosk from "./Views/Kiosk/Transactions";
 import ConfigurationsKiosk from "./Views/Kiosk/Configurations";
 import LoginPOS from "./Views/POS/Login";
 import DashboardPOS from "./Views/POS/Dashboard";
+import LoginMultiusos from "./Views/Multiusos/Login";
+import DashboardMultiusos from "./Views/Multiusos/Dashboard";
 
 export default function Router(){
     return (
@@ -32,6 +34,8 @@ export default function Router(){
                     <Route path="/kiosk/config" element={<ConfigurationsKiosk />} />
                     <Route path="/pos" element={<LoginPOS />} />
                     <Route path="/pos/dashboard" element={<DashboardPOS />} />
+                    <Route path="/multiusos" element={<LoginMultiusos />} />
+                    <Route path="/multiusos/dashboard" element={<DashboardMultiusos />} />
                 </Routes>
             {/* </AuthProvider> */}
         </BrowserRouter>

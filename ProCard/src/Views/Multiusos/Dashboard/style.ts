@@ -74,7 +74,7 @@ export const MainItem = styled.div`
 `;
 
 export const LISub = styled.li`
-    margin-top: 10px;
+    margin-top: 5px;
     margin-left: 5px;
     border-radius: 3px;
     &:hover{
