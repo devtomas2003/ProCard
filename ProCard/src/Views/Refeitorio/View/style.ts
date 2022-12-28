@@ -75,7 +75,6 @@ export const MealTimeTxt = styled.p`
 
 export const LineServiceDetails = styled.div`
     display: flex;
-    flex-direction: row;
     width: 100%;
 `;
 

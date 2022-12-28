@@ -4,6 +4,10 @@ interface LineTableProps {
     isActive: boolean;
 }
 
+interface MovementType {
+    isActive: boolean;
+}
+
 export const Container = styled.div`
     position: absolute;
     display: flex;
@@ -38,7 +42,6 @@ export const TxtActualService = styled.p`
 
 export const LineServiceDetails = styled.div`
     display: flex;
-    flex-direction: row;
 `;
 
 export const TableTransactions = styled.table`
@@ -63,6 +66,7 @@ export const TDTabTra = styled.td`
 export const TableHead = styled.thead`
     background: #f0f0f0;
     font-weight: bold;
+    font-size: 18px;
 `;
 
 export const TableBody = styled.tbody``;
@@ -89,4 +93,32 @@ export const BtnAction = styled.div`
 export const TxtBtn = styled.p`
     color: #fff;
     margin-left: 5px;
+`;
+
+export const BoxTopMenus = styled.div`
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 15px;
+`;
+
+export const BoxMovType = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: ${(props: MovementType) => props.isActive ? '#34a9cc' : '#fafafa'};
+    border: 1px solid ${(props: MovementType) => props.isActive ? '#34a9cc' : '#ccc'};
+    color: ${(props: MovementType) => props.isActive ? '#fff' : '#333'};
+    width: 200px;
+    height: 50px;
+    border-radius: 4px;
+    &:not(:first-child){
+        margin-left: 10px;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+`;
+
+export const MoveTxt = styled.p`
+    font-size: 16px;
 `;

@@ -15,7 +15,10 @@ import {
     BackZone,
     BtnsActions,
     BtnAction,
-    TxtBtn
+    TxtBtn,
+    BoxTopMenus,
+    BoxMovType,
+    MoveTxt
 } from "./style";
 
 import Footer from "../Components/Footer";
@@ -46,6 +49,20 @@ export default function Transactions(){
                             </BtnAction>
                         </BtnsActions>
                     </BoxBackZone>
+                    <BoxTopMenus>
+                        <BoxMovType isActive={true}>
+                            <MoveTxt>Conta corrente</MoveTxt>
+                        </BoxMovType>
+                        <BoxMovType isActive={false}>
+                            <MoveTxt>Subsídios</MoveTxt>
+                        </BoxMovType>
+                        <BoxMovType isActive={false}>
+                            <MoveTxt>Suplementos</MoveTxt>
+                        </BoxMovType>
+                        <BoxMovType isActive={false}>
+                            <MoveTxt>Consumos</MoveTxt>
+                        </BoxMovType>
+                    </BoxTopMenus>
                     <LineServiceDetails>
                         <TableTransactions cellPadding={0} cellSpacing={0}>
                             <TableHead>

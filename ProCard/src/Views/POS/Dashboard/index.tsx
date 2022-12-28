@@ -16,12 +16,48 @@ import {
     TxtSubItem,
     TxtSubItemOnly,
     MenuMetadata,
-    DropIcon
+    DropIcon,
+    ContainerAtual,
+    BoxUserLogin,
+    ContainerUserLogin,
+    LoginTitle,
+    CardTxt,
+    LoginBox,
+    LoginGroup,
+    InpLogin,
+    TxtLogin,
+    BtnsAction,
+    BtnLogin,
+    BtnText,
+    HeaderZone,
+    TxtZone,
+    CashContainer,
+    BoxUser,
+    IMGUser,
+    UserMetadata,
+    LineUser,
+    UserBalance,
+    TxtLblBalance,
+    ValBalance,
+    SideMetadata,
+    BtnActionPOS,
+    BoxCharge,
+    TxtCharge,
+    InpCharge,
+    LineCharge,
+    MoneySymbol,
+    TxtChargeSyn,
+    BoxContainerCharge,
+    LastChargeMetadata,
+    LineLastCharge,
+    LineLastChr,
+    LineLastVal,
+    LineTxtLastTime
 } from "./style"
 
 import Footer from "../Components/Footer";
 
-import { FaCashRegister, FaHandHoldingUsd, FaHandshake, FaUserCircle, FaWrench } from "react-icons/fa";
+import { FaCashRegister, FaHandHoldingUsd, FaHandshake, FaUserCircle } from "react-icons/fa";
 import { BsCashCoin, BsPrinterFill, BsPaperclip, BsGearFill } from "react-icons/bs";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { GiSandwich, GiHotMeal, GiPayMoney } from "react-icons/gi";
@@ -207,6 +243,73 @@ export default function Dashboard(){
                         </ULMain>
                     </MenuZone>
                 </SideMenu>
+                <ContainerAtual>
+                    <HeaderZone>
+                        <TxtZone>Caixa » Carregar cartão</TxtZone>
+                    </HeaderZone>
+                    { false ?
+                    <BoxUserLogin>
+                        <ContainerUserLogin>
+                            <LoginTitle>Login</LoginTitle>
+                            <CardTxt>Ou passe o cartão do utente.</CardTxt>
+                            <LoginBox>
+                                <LoginGroup>
+                                    <TxtLogin>Utilizador</TxtLogin>
+                                    <InpLogin type="text" required placeholder="Nº de Cartão" autoComplete="off" autoCapitalize="off" autoCorrect="off" />
+                                </LoginGroup>
+                                <LoginGroup>
+                                    <TxtLogin>Password ou PIN</TxtLogin>
+                                    <InpLogin type="password" required />
+                                </LoginGroup>
+                            </LoginBox>
+                            <BtnsAction>
+                                <BtnLogin type="submit">
+                                    <BtnText>Entrar</BtnText>
+                                </BtnLogin>
+                            </BtnsAction>
+                        </ContainerUserLogin>
+                    </BoxUserLogin> : null }
+                    <CashContainer method="post">
+                        <BoxCharge>
+                            <BoxContainerCharge>
+                                <TxtCharge>Valor a creditar</TxtCharge>
+                                <LineCharge>
+                                    <InpCharge type="text" required pattern="[0-9,.\-$]+" autoComplete="off" autoCorrect="off" autoCapitalize="off" />
+                                    <MoneySymbol>
+                                        <TxtChargeSyn>€</TxtChargeSyn>
+                                    </MoneySymbol>
+                                </LineCharge>
+                            </BoxContainerCharge>
+                        </BoxCharge>
+                        <SideMetadata>
+                            <BoxUser>
+                                <IMGUser src="https://www.osso.pt/wp-content/uploads/2013/03/765-default-avatar.png" title="Fulano de Tal" alt="Fulano de Tal" />
+                                <UserMetadata>
+                                    <LineUser>a13105</LineUser>
+                                    <LineUser>Tomás Figueiredo</LineUser>
+                                    <LineUser>10ºA - 22</LineUser>
+                                </UserMetadata>
+                            </BoxUser>
+                            <UserBalance>
+                                <TxtLblBalance>Saldo:</TxtLblBalance>
+                                <ValBalance>12,80 €</ValBalance>
+                            </UserBalance>
+                            <BtnActionPOS>
+                                <BtnText>Terminar sessão</BtnText>
+                            </BtnActionPOS>
+                            <BtnActionPOS type="submit">
+                                <BtnText>Confirmar</BtnText>
+                            </BtnActionPOS>
+                            <LastChargeMetadata>
+                                <LineLastCharge>
+                                    <LineLastChr>Ultimo carregamento:</LineLastChr>
+                                    <LineLastVal>2,00 €</LineLastVal>
+                                </LineLastCharge>
+                                <LineTxtLastTime>27/11/2022 11:49</LineTxtLastTime>
+                            </LastChargeMetadata>
+                        </SideMetadata>
+                    </CashContainer>
+                </ContainerAtual>
             </BoxContainer>
             <Footer />
         </Container>
