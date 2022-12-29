@@ -42,6 +42,7 @@ export default function Configurations(){
             manualAuth
         };
         localStorage.setItem("confs-kiosk", JSON.stringify(atualConfig));
+        alert("Alterações gravadas com sucesso!");
     }
 
     return (

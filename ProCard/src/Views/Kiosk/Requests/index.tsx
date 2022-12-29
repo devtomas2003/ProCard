@@ -24,13 +24,23 @@ import {
     TxtLblSelect,
     BoxType,
     BoxMealType,
-    MealTypeTxt
+    MealTypeTxt,
+    BoxSelectRef,
+    OptRef,
+    BoxFinishCart,
+    CartContainer,
+    CartBox,
+    TxtCartBox,
+    BoxCartTxts,
+    CartTxt,
+    CartTxtBld
 } from "./style";
 
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 
 import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { BsCartCheckFill } from "react-icons/bs";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 export default function Requests(){
@@ -52,13 +62,13 @@ export default function Requests(){
                 <LineServiceDetails>
                     <BoxTopMonth>
                         <BoxChangeMonth>
-                            <IoIosArrowBack size="20" color="#1f61cf" />
+                            <IoIosArrowBack size="25" color="#1f61cf" />
                         </BoxChangeMonth>
                         <BoxAtualMonth>
                             <TxtMonth>Agosto 2022</TxtMonth>
                         </BoxAtualMonth>
                         <BoxChangeMonth>
-                            <IoIosArrowForward size="20" color="#1f61cf" />
+                            <IoIosArrowForward size="25" color="#1f61cf" />
                         </BoxChangeMonth>
                     </BoxTopMonth>
                     <BoxMainContainer>
@@ -129,16 +139,33 @@ export default function Requests(){
                         </BoxDates>
                         <BoxSelectedDay>
                             <TxtSelectedMeal>Segunda, 1 de Agosto de 2022 - Almoço</TxtSelectedMeal>
+                            <TxtLblSelect>Selecione o refeitório</TxtLblSelect>
+                            <BoxSelectRef>
+                                <OptRef>Refeitório - Escola Secundária de Tondela</OptRef>
+                                <OptRef>Refeitório - Escola Básica do Campo de Besteiros</OptRef>
+                            </BoxSelectRef>
                             <TxtLblSelect>Selecione o tipo de refeição</TxtLblSelect>
                             <BoxType>
                                 <BoxMealType>
-                                    <MealTypeTxt>Almoço</MealTypeTxt>
+                                    <MealTypeTxt>Normal (1,46 €)</MealTypeTxt>
                                 </BoxMealType>
                                 <BoxMealType>
-                                    <MealTypeTxt>Jantar</MealTypeTxt>
+                                    <MealTypeTxt>Vegetariano (1,46 €)</MealTypeTxt>
                                 </BoxMealType>
                             </BoxType>
                         </BoxSelectedDay>
+                        <BoxFinishCart>
+                            <CartContainer>
+                                <CartBox>
+                                    <BsCartCheckFill size="40" color="#fff" />
+                                    <TxtCartBox>Terminar carrinho</TxtCartBox>
+                                </CartBox>
+                                <BoxCartTxts>
+                                    <CartTxt>Total: <CartTxtBld>12,80 €</CartTxtBld></CartTxt>
+                                    <CartTxt>Quantidade: <CartTxtBld>5</CartTxtBld></CartTxt>
+                                </BoxCartTxts>
+                            </CartContainer>
+                        </BoxFinishCart>
                     </BoxMainContainer>
                 </LineServiceDetails>
             </MainContainer>

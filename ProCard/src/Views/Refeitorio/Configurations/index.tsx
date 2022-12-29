@@ -47,6 +47,7 @@ export default function Configurations(){
             doorNeed
         };
         localStorage.setItem("confs-refeitorio", JSON.stringify(atualConfig));
+        alert("Alterações gravadas com sucesso!");
     }
 
     return (

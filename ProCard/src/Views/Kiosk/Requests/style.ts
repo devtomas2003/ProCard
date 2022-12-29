@@ -52,8 +52,8 @@ export const BoxChangeMonth = styled.div`
     justify-content: center;
     background: #f2f2f2;
     border-radius: 3px;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     &:hover{
         cursor: pointer;
     }
@@ -74,7 +74,7 @@ export const TxtMonth = styled.p`
 
 export const BoxDates = styled.div`
     overflow-y: auto;
-    max-height: calc(100vh - 319px);
+    max-height: calc(100vh - 324px);
     padding: 10px;
     width: 320px;
 `;
@@ -118,6 +118,7 @@ export const HeaderBox = styled.div`
 
 export const TxtSelectedMeal = styled.p`
     color: #444;
+    margin-bottom: 20px;
     font-size: 20px;
 `;
 
@@ -158,4 +159,63 @@ export const BoxMealType = styled.div`
 
 export const MealTypeTxt = styled.p`
     color: #1f61cf;
+`;
+
+export const BoxSelectRef = styled.select`
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid #aaa;
+`;
+
+export const OptRef = styled.option``;
+
+export const BoxFinishCart = styled.div`
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: flex-end;
+`;
+
+export const CartContainer = styled.div`
+    display: flex;
+    box-shadow: 0 4px 12px 0 rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%);
+    border: 1px solid #f0f0f0;
+    padding: 10px;
+    border-radius: 3px;
+`;
+
+export const CartBox = styled.div`
+    background: #009f3c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 3px;
+    margin-right: 5px;
+    &:hover{
+        cursor: pointer;
+    }
+`;
+
+export const TxtCartBox = styled.p`
+    text-align: center;
+    color: #fff;
+    margin-top: 5px;
+`;
+
+export const BoxCartTxts = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+export const CartTxt = styled.p`
+    color: #444;
+`;
+
+export const CartTxtBld = styled.label`
+    font-weight: bold;
 `;
