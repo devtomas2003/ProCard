@@ -15,6 +15,8 @@ import LoginPOS from "./Views/POS/Login";
 import DashboardPOS from "./Views/POS/Dashboard";
 import LoginMultiusos from "./Views/Multiusos/Login";
 import DashboardMultiusos from "./Views/Multiusos/Dashboard";
+import LoginGestor from "./Views/Gestor/Login";
+import DashboardGestor from "./Views/Gestor/Dashboard";
 
 export default function Router(){
     return (
@@ -36,6 +38,8 @@ export default function Router(){
                     <Route path="/pos/dashboard" element={<DashboardPOS />} />
                     <Route path="/multiusos" element={<LoginMultiusos />} />
                     <Route path="/multiusos/dashboard" element={<DashboardMultiusos />} />
+                    <Route path="/gestor" element={<LoginGestor />} />
+                    <Route path="/gestor/dashboard" element={<DashboardGestor />} />
                 </Routes>
             {/* </AuthProvider> */}
         </BrowserRouter>

@@ -101,10 +101,6 @@ export const TxtSubItem = styled.p`
     margin-left: 10px;
 `;
 
-export const TxtSubItemOnly = styled.p`
-    color: #4B5563;
-`;
-
 export const MenuMetadata = styled.div`
     display: flex;
     align-items: center;

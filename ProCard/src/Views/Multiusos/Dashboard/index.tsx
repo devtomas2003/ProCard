@@ -124,7 +124,7 @@ export default function Dashboard(){
                                     <LISub>
                                         <SubItem>
                                             <TbBuildingWarehouse size={20} color="#4B5563" />
-                                            <TxtSubItem>Armazens</TxtSubItem>
+                                            <TxtSubItem>Armazéns</TxtSubItem>
                                         </SubItem>
                                     </LISub>
                                     <LISub>

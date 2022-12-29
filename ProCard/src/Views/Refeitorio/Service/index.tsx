@@ -62,7 +62,7 @@ export default function Service(){
     const [sellWithTax, setSellWithTax] = useState(true);
 
     function checkPermsApp(name: string): boolean{
-        const perms = JSON.parse(localStorage.getItem("confs") || "{}");
+        const perms = JSON.parse(localStorage.getItem("confs-refeitorio") || "{}");
         return perms[name as keyof ConfsProps];
     }
 

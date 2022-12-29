@@ -15,6 +15,8 @@ export const BoxContainer = styled.div`
 `;
 
 export const SideMenu = styled.div`
+    display: flex;
+    flex-direction: column;
     padding: 10px;
     width: 300px;
     box-shadow: 0 4px 12px 0 rgba(0,0,0,0.07),0 2px 4px rgba(0,0,0,0.05);
@@ -39,6 +41,10 @@ export const AppName = styled.p`
 
 export const MenuZone = styled.div`
     margin-top: 10px;
+    display: flex;
+    overflow-y: auto;
+    width: 100%;
+    flex: 1;
 `;
 
 export const TxtItemMain = styled.p`
@@ -60,6 +66,7 @@ export const LIMain = styled.li`
 
 export const ULMain = styled.ul`
     list-style: none;
+    width: 100%;
 `;
 
 export const MainItem = styled.div`
@@ -74,7 +81,7 @@ export const MainItem = styled.div`
 `;
 
 export const LISub = styled.li`
-    margin-top: 10px;
+    margin-top: 5px;
     margin-left: 5px;
     border-radius: 3px;
     &:hover{
@@ -108,7 +115,7 @@ export const DropIcon = styled.div`
 `;
 
 export const ContainerAtual = styled.div`
-    width: 100%;
+    flex: 1;
     height: 100%;
 `;
 

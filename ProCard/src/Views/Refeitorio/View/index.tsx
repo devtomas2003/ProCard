@@ -100,12 +100,8 @@ export default function View(){
                         <TxtDayTypeTxt>Almoço - segunda-feira, 30 de agosto de 2022</TxtDayTypeTxt>
                         <BoxMealsCount>
                             <BoxMealType>
-                                <MealTypeTxt>Carne</MealTypeTxt>
+                                <MealTypeTxt>Normal</MealTypeTxt>
                                 <CountTxt>200</CountTxt>
-                            </BoxMealType>
-                            <BoxMealType>
-                                <MealTypeTxt>Peixe</MealTypeTxt>
-                                <CountTxt>0</CountTxt>
                             </BoxMealType>
                             <BoxMealType>
                                 <MealTypeTxt>Vegetariano</MealTypeTxt>
