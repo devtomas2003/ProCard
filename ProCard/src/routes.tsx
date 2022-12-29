@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginRefeitorio from "./Views/Refeitorio/Login";
 
 import Default from './style';
+import LoginRefeitorio from "./Views/Refeitorio/Login";
 import MenuRefeitorio from "./Views/Refeitorio/Menu";
 import ServiceRefeitorio from "./Views/Refeitorio/Service";
 import ViewRefeitorio from "./Views/Refeitorio/View";
